@@ -1,0 +1,11 @@
+C:\Users\serge\Desktop\C#\Годные проекты\WordProcessor\WordProcessor\bin\Debug\netcoreapp2.1\WordProcessor.deps.json
+C:\Users\serge\Desktop\C#\Годные проекты\WordProcessor\WordProcessor\bin\Debug\netcoreapp2.1\WordProcessor.runtimeconfig.json
+C:\Users\serge\Desktop\C#\Годные проекты\WordProcessor\WordProcessor\bin\Debug\netcoreapp2.1\WordProcessor.runtimeconfig.dev.json
+C:\Users\serge\Desktop\C#\Годные проекты\WordProcessor\WordProcessor\bin\Debug\netcoreapp2.1\WordProcessor.dll
+C:\Users\serge\Desktop\C#\Годные проекты\WordProcessor\WordProcessor\bin\Debug\netcoreapp2.1\WordProcessor.pdb
+C:\Users\serge\Desktop\C#\Годные проекты\WordProcessor\WordProcessor\obj\Debug\netcoreapp2.1\WordProcessor.csprojAssemblyReference.cache
+C:\Users\serge\Desktop\C#\Годные проекты\WordProcessor\WordProcessor\obj\Debug\netcoreapp2.1\WordProcessor.csproj.CoreCompileInputs.cache
+C:\Users\serge\Desktop\C#\Годные проекты\WordProcessor\WordProcessor\obj\Debug\netcoreapp2.1\WordProcessor.AssemblyInfoInputs.cache
+C:\Users\serge\Desktop\C#\Годные проекты\WordProcessor\WordProcessor\obj\Debug\netcoreapp2.1\WordProcessor.AssemblyInfo.cs
+C:\Users\serge\Desktop\C#\Годные проекты\WordProcessor\WordProcessor\obj\Debug\netcoreapp2.1\WordProcessor.dll
+C:\Users\serge\Desktop\C#\Годные проекты\WordProcessor\WordProcessor\obj\Debug\netcoreapp2.1\WordProcessor.pdb
