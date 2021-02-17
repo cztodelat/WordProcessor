@@ -3,6 +3,8 @@ using WordProcessor.Models;
 using WordProcessor.Data;
 using System.Linq;
 using WordProcessor.Messages;
+using System.Threading.Tasks;
+using System;
 
 namespace WordProcessor
 {
@@ -19,9 +21,9 @@ namespace WordProcessor
                 }
             }
         }
-        public static void SetNewData(IEnumerable<WordModel> words)
+        public async static Task SetNewData(IEnumerable<WordModel> words)
         {
-            RemoveData();
+            await RemoveDataAsync();
             using (WordProcessorContext context = new WordProcessorContext())
             {
                 foreach (WordModel word in words)
@@ -66,18 +68,24 @@ namespace WordProcessor
 
         }
 
-        public static void RemoveData()
+        public async static Task RemoveDataAsync()
         {
             using (WordProcessorContext context = new WordProcessorContext())
             {
-                context.Words.RemoveRange(GetData());
+                var data = await GetDataAsync();
+                context.Words.RemoveRange(data);
                 //context.Database.ExecuteSqlRaw("DBCC CHECKIDENT('Words', RESEED, 0)");
                 context.SaveChanges();
             }
             DataBaseStandardMessages.RemoveDataMessage();
         }
 
-        public static List<WordModel> GetData()
+        public async static Task<List<WordModel>> GetDataAsync()
+        {
+            return await Task.Run(() => GetData());
+        }
+
+        private static List<WordModel> GetData()
         {
             List<WordModel> words;
 

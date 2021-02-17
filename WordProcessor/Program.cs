@@ -1,16 +1,20 @@
 ﻿using System;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace WordProcessor
 {
+
+
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
+            #region WordProcessor Starter
             try
             {
                 DataBaseProcessor.InitializeDataBase();
-                AppProcessor.ExecuteApp(args);
+                await AppProcessor.ExecuteApp(args);
             }
             catch (FileNotFoundException ex)
             {
@@ -21,9 +25,11 @@ namespace WordProcessor
             {
                 Console.WriteLine(ex.Message);
             }
+            #endregion
+
+
+
 
         }
-
-
     }
 }

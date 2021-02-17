@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace WordProcessor.Commands
 {
@@ -8,10 +9,10 @@ namespace WordProcessor.Commands
     {
         public override string CommandName => "--create";
 
-        public override void Execute()
+        public async override Task Execute()
         {
             string path = FilePrecessor.GetFilePath();
-            DataBaseProcessor.SetNewData(FilePrecessor.GetWordsFromFile(path));
+            await DataBaseProcessor.SetNewData(FilePrecessor.GetWordsFromFile(path));
         }
     }
 }

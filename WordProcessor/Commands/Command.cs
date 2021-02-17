@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace WordProcessor.Commands
 {
@@ -8,6 +9,6 @@ namespace WordProcessor.Commands
     {
         public abstract string CommandName { get; }
 
-        public abstract void Execute();
+        public abstract Task Execute();
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using WordProcessor.Models;
 
 namespace WordProcessor
@@ -9,7 +10,7 @@ namespace WordProcessor
     {
         static List<WordModel> words = null;
         
-        public static void ExecuteDictionary()
+        public async static Task ExecuteDictionary()
         {
             StringBuilder str = new StringBuilder();
             int nextChar;
@@ -25,12 +26,13 @@ namespace WordProcessor
                     Console.Clear();
                     break;
                 }
-                else if (nextChar == 13) //13 Enter
+                else 
+                if (nextChar == 13) //13 Enter
                 {
                     Console.Clear();
                     Console.SetCursorPosition(0, Console.CursorTop + 1);
                     lastCursorTopPosition = Console.CursorTop;
-                    ShowTopWords(5, str.ToString());
+                    await ShowTopWords(5, str.ToString());
                     Console.SetCursorPosition(0, lastCursorTopPosition - 1);
                     str.Clear();
                 }
@@ -41,11 +43,11 @@ namespace WordProcessor
             }
         }
 
-        public static void ShowTopWords(int numberOfWords, string partOfWord)
+        public async static Task ShowTopWords(int numberOfWords, string partOfWord)
         {
             if (words == null)
             {
-                words = DataBaseProcessor.GetData(); 
+                words = await DataBaseProcessor.GetDataAsync(); 
                 words.Sort((x, y) => WordModel.SortByWordThenByCount(x, y));
             }
 
@@ -56,12 +58,14 @@ namespace WordProcessor
                     break;
                 }
 
-                if (partOfWord.Equals(words[i].Word.Substring(0, partOfWord.Length), StringComparison.CurrentCultureIgnoreCase))
+                if (words[i].Word.Length >= partOfWord.Length)
                 {
-                    Console.WriteLine($"{words[i].Word} - {words[i].Count}");
-                    numberOfWords--;
+                    if (partOfWord.Equals(words[i].Word.Substring(0, partOfWord.Length), StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        Console.WriteLine($"{words[i].Word} - {words[i].Count}");
+                        numberOfWords--;
+                    }
                 }
-
             }
         }
     }

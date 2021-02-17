@@ -12,7 +12,7 @@ namespace WordProcessor.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=YOUR_SOURCE;Initial Catalog=WordsDB;Integrated Security=True");
+            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-0F2A56E\SQLEXPRESS;Initial Catalog=WordsDB;Integrated Security=True"); //YOUR_SOURCE
         }
     }
 }

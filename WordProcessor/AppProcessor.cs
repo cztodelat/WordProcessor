@@ -2,20 +2,21 @@
 using System.Collections.Generic;
 using WordProcessor.Commands;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace WordProcessor
 {
     public static class AppProcessor
     {
         private static List<Command> commands = new List<Command>();
-        public static void ExecuteApp(string[] args)
+        public async static Task ExecuteApp(string[] args)
         {
             string path = String.Empty;
             string commandName = "";
             
             if (args.Length == 0)
             {
-                DictionaryProcessor.ExecuteDictionary();
+                await DictionaryProcessor.ExecuteDictionary();
                 return;
             } else
             {
@@ -25,7 +26,7 @@ namespace WordProcessor
                 {
                     if (command.CommandName == commandName)
                     {
-                        command.Execute();
+                        await command.Execute();
                         return;
                     }
                 }

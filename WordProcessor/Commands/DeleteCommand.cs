@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace WordProcessor.Commands
 {
@@ -8,9 +9,9 @@ namespace WordProcessor.Commands
     {
         public override string CommandName => "--delete";
 
-        public override void Execute()
+        public async override Task Execute()
         {
-            DataBaseProcessor.RemoveData();
+            await DataBaseProcessor.RemoveDataAsync();
         }
     }
 }
